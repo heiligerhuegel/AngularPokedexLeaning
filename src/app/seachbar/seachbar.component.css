@@ -1,0 +1,13 @@
+.accordion {
+  width: 100%;
+}
+
+.card-header {
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+}
+.card-body {
+  border-bottom: 1px lightgrey solid;
+}

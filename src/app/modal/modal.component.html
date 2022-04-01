@@ -1,0 +1,59 @@
+<!-- Button trigger modal -->
+<button
+  type="button"
+  class="btn btn-secondary"
+  data-toggle="modal"
+  attr.data-target="#Modal{{ pokemon.id }}"
+>
+  {{ pokemon.name.toUpperCase() }}
+</button>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="Modal{{ pokemon.id }}"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">
+          {{ pokemon.name.toUpperCase() }}
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h6>Details</h6>
+        <hr />
+        <p>ID: {{ pokemon.id }}</p>
+        <p>Height: {{ pokemon.height }}inches</p>
+        <p>Weight: {{ pokemon.weight }}lbs</p>
+        <br />
+        <h6>Types</h6>
+        <hr />
+        <div *ngFor="let type of pokemon.types">
+          <h5>{{ type.type.name.toUpperCase() }}</h5>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="addToTeam()">
+          Add to Team
+        </button>
+
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

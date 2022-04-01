@@ -1,0 +1,7 @@
+<div class="row">
+  <div *ngFor="let pokemon of Team.myPokemons">
+    <div class="col" *ngIf="pokemon">
+      <app-card [pokemon]="pokemon"></app-card>
+    </div>
+  </div>
+</div>

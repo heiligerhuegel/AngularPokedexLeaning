@@ -1,0 +1,15 @@
+<div
+  class="col"
+  infinite-scroll
+  [infiniteScrollDistance]="0"
+  (scrolled)="onScrollDown($event)"
+>
+  <div class="container">
+    <app-seachbar (output)="setData($event)"></app-seachbar>
+  </div>
+  <div class="row" *ngIf="filteredPokemon.length">
+    <div *ngFor="let pokemon of filteredPokemon">
+      <app-card [pokemon]="pokemon"></app-card>
+    </div>
+  </div>
+</div>
