@@ -46,10 +46,21 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success" (click)="addToTeam()">
-          Add to Team
-        </button>
-
+        <div *ngIf="!isOnTeam">
+          <button type="button" class="btn btn-success" (click)="addToTeam()">
+            Add to Team
+          </button>
+        </div>
+        <div *ngIf="isOnTeam">
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="remove()"
+            data-dismiss="modal"
+          >
+            Remove from Team
+          </button>
+        </div>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">
           Close
         </button>

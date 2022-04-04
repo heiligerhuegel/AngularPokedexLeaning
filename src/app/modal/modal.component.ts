@@ -8,24 +8,26 @@ import { TeamService } from '../services/team.service';
   styleUrls: ['./modal.component.css'],
 })
 export class ModalComponent implements OnInit {
-  constructor(public Team: TeamService) {}
-
   isOnTeam: boolean = false;
+
+  constructor(public Team: TeamService) {}
 
   @Input() pokemon!: Pokemon;
 
-  ngOnInit(): void {}
-
-  addToTeam(): void {
-    console.log('I want to add:' + this.pokemon.name + ' to my team');
-    if (!this.isOnTeam) {
-      this.Team.addPokemon(this.pokemon);
-    } else {
-      console.log('This Pokemon is on you Team!');
-    }
+  ngOnInit(): void {
+    this.isOnTeam = this.Team.checkStatus(this.pokemon);
   }
 
-  removeFromTeam(): void {
-    console.log('I want to remove:' + this.pokemon.name + ' to my team');
+  addToTeam(): void {
+    // console.log(
+    //   'I want to add:' + this.pokemon.name.toLocaleUpperCase() + ' to my team'
+    // );
+    this.Team.addPokemon(this.pokemon);
+    this.isOnTeam = true;
+  }
+
+  remove(): void {
+    this.Team.remove(this.pokemon);
+    this.isOnTeam = false;
   }
 }

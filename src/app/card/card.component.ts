@@ -15,8 +15,8 @@ export class CardComponent implements OnInit {
   colordeg: number = 180;
   colorrota: number = 1;
 
-  colorpro: number = 80;
   colorchager: number = 1;
+  colorpro: number = 80;
   colormargin: number = 15;
 
   constructor(private colorPickerService: ColorPickerService) {}
